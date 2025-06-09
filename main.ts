@@ -105,16 +105,16 @@ let jump = false
 let roll = 0
 let mySprite: Sprite = null
 let st = false
+varinit()
 st = game.ask("")
 mySprite = sprites.create(doSomethingelse(0), SpriteKind.Player)
 if (st) {
     tiles.setCurrentTilemap(tilemap`level1`)
 } else {
     tiles.setCurrentTilemap(tilemap`level2`)
-    tiles.placeOnRandomTile(mySprite, assets.tile`transparency16`)
+    tiles.placeOnRandomTile(mySprite, assets.tile`tile2`)
 }
 scene.cameraFollowSprite(mySprite)
-varinit()
 game.onUpdate(function () {
     if (true) {
         if (roll <= 0) {
@@ -167,7 +167,7 @@ game.onUpdate(function () {
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Player)
     mySprite2.setPosition(mySprite.x, mySprite.y + 3)
-    for (let value of tiles.getTilesByType(assets.tile`transparency16`)) {
+    for (let value of tiles.getTilesByType(assets.tile`tile10`)) {
         if (mySprite2.tilemapLocation().row < value.row) {
             if (mySprite.vy > -10) {
                 tiles.setWallAt(tiles.getTileLocation(value.column, value.row), true)
