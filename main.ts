@@ -7,6 +7,18 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
         Wile_E = 5
     }
 })
+function gravity () {
+    if (jumpbetter <= 0 || !(controller.A.isPressed())) {
+        if (roll <= 0) {
+            mySprite.vy += 9.8
+        } else {
+            mySprite.vy += 4.9
+        }
+        jumpbetter = 0
+    } else {
+        jumpbetter += -1
+    }
+}
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (jump || cheating) {
         if (controller.right.isPressed()) {
@@ -18,11 +30,63 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
+function movement () {
+    if (roll <= 0) {
+        if (controller.left.isPressed()) {
+            Go(-1)
+        }
+        if (controller.right.isPressed()) {
+            Go(1)
+        }
+        if (controller.left.isPressed() && controller.right.isPressed() || !(controller.left.isPressed() || controller.right.isPressed())) {
+            Slow_down()
+        }
+    }
+    if (0 < roll) {
+        mySprite.setImage(doSomethingelse(2))
+    } else if (mySprite.vx > 0) {
+        mySprite.setImage(doSomethingelse(1))
+    } else if (mySprite.vx < 0) {
+        mySprite.setImage(doSomethingelse(0))
+    }
+}
+function semisolids () {
+    mySprite2 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+    mySprite2.setPosition(mySprite.x, mySprite.y + 3)
+    for (let value of tiles.getTilesByType(assets.tile`tile10`)) {
+        if (mySprite2.tilemapLocation().row < value.row) {
+            if (mySprite.vy > -10) {
+                tiles.setWallAt(tiles.getTileLocation(value.column, value.row), true)
+            }
+        } else {
+            tiles.setWallAt(tiles.getTileLocation(value.column, value.row), false)
+        }
+    }
+    sprites.destroy(mySprite2)
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (jump || roll > 0) {
         mySprite.vy = -150
         jump = false
         roll = 0
+        jumpbetter = 5
     }
 })
 function varinit () {
@@ -94,12 +158,21 @@ function Go (_11: number) {
         }
     }
 }
-let mySprite2: Sprite = null
+function coyote_time () {
+    if (jump) {
+        Wile_E += -1
+        if (Wile_E <= 0) {
+            jump = false
+        }
+    }
+}
 let lis2: Image[] = []
 let list: Image[] = []
 let ws = 0
+let mySprite2: Sprite = null
 let rs = 0
 let cheating = false
+let jumpbetter = 0
 let Wile_E = 0
 let jump = false
 let roll = 0
@@ -116,65 +189,9 @@ if (st) {
 }
 scene.cameraFollowSprite(mySprite)
 game.onUpdate(function () {
-    if (true) {
-        if (roll <= 0) {
-            mySprite.vy += 9.8
-        } else {
-            mySprite.vy += 4.9
-        }
-    }
-    if (jump) {
-        Wile_E += -1
-        if (Wile_E <= 0) {
-            jump = false
-        }
-    }
+    gravity()
+    coyote_time()
     roll += -1
-    if (roll <= 0) {
-        if (controller.left.isPressed()) {
-            Go(-1)
-        }
-        if (controller.right.isPressed()) {
-            Go(1)
-        }
-        if (controller.left.isPressed() && controller.right.isPressed() || !(controller.left.isPressed() || controller.right.isPressed())) {
-            Slow_down()
-        }
-    }
-    if (0 < roll) {
-        mySprite.setImage(doSomethingelse(2))
-    } else if (mySprite.vx > 0) {
-        mySprite.setImage(doSomethingelse(1))
-    } else if (mySprite.vx < 0) {
-        mySprite.setImage(doSomethingelse(0))
-    }
-    mySprite2 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Player)
-    mySprite2.setPosition(mySprite.x, mySprite.y + 3)
-    for (let value of tiles.getTilesByType(assets.tile`tile10`)) {
-        if (mySprite2.tilemapLocation().row < value.row) {
-            if (mySprite.vy > -10) {
-                tiles.setWallAt(tiles.getTileLocation(value.column, value.row), true)
-            }
-        } else {
-            tiles.setWallAt(tiles.getTileLocation(value.column, value.row), false)
-        }
-    }
-    sprites.destroy(mySprite2)
+    movement()
+    semisolids()
 })
