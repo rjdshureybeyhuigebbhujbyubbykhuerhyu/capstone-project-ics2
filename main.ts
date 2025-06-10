@@ -2,9 +2,14 @@ namespace SpriteKind {
     export const plat = SpriteKind.create()
 }
 scene.onHitWall(SpriteKind.Player, function (sprite, location) {
-    if (location.row > mySprite.tilemapLocation().row && roll <= 0) {
-        jump = true
-        Wile_E = 5
+    if (location.row > mySprite.tilemapLocation().row) {
+        if (roll <= 0) {
+            jump = true
+            Wile_E = 5
+        }
+    } else {
+        roll = 0
+        mySprite.vx = mySprite.vx * (-2 / 15)
     }
 })
 function gravity () {
@@ -70,7 +75,7 @@ function semisolids () {
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Player)
     mySprite2.setPosition(mySprite.x, mySprite.y + 3)
-    for (let value of tiles.getTilesByType(assets.tile`tile10`)) {
+    for (let value of tiles.getTilesByType(assets.tile`ss`)) {
         if (mySprite2.tilemapLocation().row < value.row) {
             if (mySprite.vy > -10) {
                 tiles.setWallAt(tiles.getTileLocation(value.column, value.row), true)
@@ -93,7 +98,7 @@ function varinit () {
     jump = true
     rs = 150
     ws = 100
-    cheating = true
+    cheating = false
     list = [assets.image`myImage0`, assets.image`myImage2`, assets.image`myImage3`]
     lis2 = [assets.image`myImage4`, assets.image`myImage5`, assets.image`myImage6`]
 }

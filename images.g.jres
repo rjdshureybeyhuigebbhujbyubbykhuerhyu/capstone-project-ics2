@@ -14,11 +14,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage0"
     },
-    "image3": {
-        "data": "hwQKAA4AAAAAAADu7u4AAAAA4O7u7g4AAADu7u7u7gAAAO7u7u7uAAAA7u7u7u4AAADu7u7u7gAAAO7u7u7uAAAA7uHu7u4AAADg7u7uDgAAAADu7u4AAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "myImage6"
-    },
     "image5": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
@@ -38,6 +33,11 @@
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage3"
+    },
+    "image3": {
+        "data": "hwQMAA4AAAAAAAAAAAAAAAAAAO7u7gAAAADg7u7uDgAAAO7u7u7uAAAA7u7u7u4AAADu7u7u7gAAAO7u7u7uAAAA7u7u7u4AAADu4e7u7gAAAODu7u4OAAAAAO7u7gAAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "myImage6"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",
