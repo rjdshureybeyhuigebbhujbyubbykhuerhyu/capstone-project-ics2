@@ -3,13 +3,16 @@ namespace SpriteKind {
 }
 scene.onHitWall(SpriteKind.Player, function (sprite, location) {
     if (location.row > mySprite.tilemapLocation().row) {
-        if (roll <= 0) {
+        if (roll <= 0 || info.life() == 2) {
             jump = true
             Wile_E = 5
         }
     } else {
-        roll = 0
-        mySprite.vx = mySprite.vx * (-2 / 15)
+        if (0 < roll) {
+            roll = 0
+            mySprite.x += Math.abs(mySprite.vx) / mySprite.vx * -1
+            mySprite.vx = mySprite.vx * (-4 / 15)
+        }
     }
 })
 function gravity () {
@@ -74,7 +77,7 @@ function semisolids () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Player)
-    mySprite2.setPosition(mySprite.x, mySprite.y + 3)
+    mySprite2.setPosition(mySprite.x, mySprite.y + 6)
     for (let value of tiles.getTilesByType(assets.tile`ss`)) {
         if (mySprite2.tilemapLocation().row < value.row) {
             if (mySprite.vy > -10) {
@@ -98,6 +101,7 @@ function varinit () {
     jump = true
     rs = 150
     ws = 100
+    info.setLife(1)
     cheating = false
     list = [assets.image`myImage0`, assets.image`myImage2`, assets.image`myImage3`]
     lis2 = [assets.image`myImage4`, assets.image`myImage5`, assets.image`myImage6`]
@@ -163,6 +167,10 @@ function Go (_11: number) {
         }
     }
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    info.setLife(2)
+})
 function coyote_time () {
     if (jump) {
         Wile_E += -1
@@ -193,6 +201,9 @@ if (st) {
     tiles.placeOnRandomTile(mySprite, assets.tile`tile2`)
 }
 scene.cameraFollowSprite(mySprite)
+for (let value of tiles.getTilesByType(assets.tile`myTile1`)) {
+    tiles.placeOnTile(sprites.create(assets.image`myImage7`, SpriteKind.Food), value)
+}
 game.onUpdate(function () {
     gravity()
     coyote_time()
