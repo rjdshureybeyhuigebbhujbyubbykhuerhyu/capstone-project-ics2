@@ -29,12 +29,10 @@ function gravity () {
 }
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (jump || cheating) {
-        if (controller.right.isPressed()) {
-            mySprite.vx = rs
-            roll = 25
-        } else if (controller.left.isPressed()) {
-            mySprite.vx = rs * -1
-            roll = 25
+        if (roll <= 0) {
+            StartRoll()
+        } else {
+            ContinueRoll()
         }
     }
 })
@@ -95,6 +93,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         jump = false
         roll = 0
         jumpbetter = 5
+        fuel = 25
     }
 })
 function varinit () {
@@ -109,6 +108,15 @@ function varinit () {
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.setImage(doSomethingelse(0))
 })
+function StartRoll () {
+    if (controller.right.isPressed()) {
+        mySprite.vx = rs
+        roll = 25
+    } else if (controller.left.isPressed()) {
+        mySprite.vx = rs * -1
+        roll = 25
+    }
+}
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.setImage(doSomethingelse(1))
 })
@@ -179,11 +187,23 @@ function coyote_time () {
         }
     }
 }
+function ContinueRoll () {
+    if (controller.right.isPressed()) {
+        if (mySprite.vx == rs) {
+            roll = 25
+        }
+    } else if (controller.left.isPressed()) {
+        if (mySprite.vx == rs * -1) {
+            roll = 25
+        }
+    }
+}
 let lis2: Image[] = []
 let list: Image[] = []
 let ws = 0
-let mySprite2: Sprite = null
 let rs = 0
+let fuel = 0
+let mySprite2: Sprite = null
 let cheating = false
 let jumpbetter = 0
 let Wile_E = 0
@@ -210,4 +230,10 @@ game.onUpdate(function () {
     roll += -1
     movement()
     semisolids()
+    if (0 < fuel && mySprite.vy >= 15) {
+        if (info.life() == 2) {
+            fuel += -1
+            mySprite.vy = 10
+        }
+    }
 })
