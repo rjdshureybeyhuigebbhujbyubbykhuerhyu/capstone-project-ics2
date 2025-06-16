@@ -1,52 +1,74 @@
 {
-    "image2": {
+    "myImages.image2": {
+        "id": "myImages.image2",
         "data": "hwQMAA4AAAAAAMAMAAAAAADA3P0AAAAAAN/t3Q8AAADw/e/dD///AO/d3d3/7t0A793d3O//2wDv3t3t7u7dAO/u7u7u/9sA8O7u/u7uvwAA/7377u6/AADw3Q3v7t4AAADPDPDu/wA=",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage4"
     },
-    "image1": {
+    "myImages.image1": {
+        "id": "myImages.image1",
         "data": "hwQMAA4AAAAAAM8M8O7/AADw3Q3v7t4AAP+9++7uvwDw7u7+7u6/AO/u7u7u/9sA797d7e7u3QDv3d3c7//bAO/d3d3/7t0A8P3v3Q///wAA3+3dDwAAAADA3P0AAAAAAADADAAAAAA=",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage5"
     },
-    "image4": {
+    "myImages.image4": {
+        "id": "myImages.image4",
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage0"
     },
-    "image5": {
+    "myImages.image5": {
+        "id": "myImages.image5",
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage"
     },
-    "image6": {
+    "myImages.image6": {
+        "id": "myImages.image6",
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage1"
     },
-    "image7": {
+    "myImages.image7": {
+        "id": "myImages.image7",
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage2"
     },
-    "image8": {
+    "myImages.image8": {
+        "id": "myImages.image8",
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage3"
     },
-    "image3": {
+    "myImages.image3": {
+        "id": "myImages.image3",
         "data": "hwQMAA4AAAAAAAAAAAAAAAAAAO7u7gAAAADg7u7uDgAAAO7u7u7uAAAA7u7u7u4AAADu7u7u7gAAAO7u7u7uAAAA7u7u7u4AAADu4e7u7gAAAODu7u4OAAAAAO7u7gAAAAAAAAAAAAA=",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage6"
     },
-    "image9": {
+    "myImages.image9": {
+        "id": "myImages.image9",
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAEREAAAAAAA0MyREAAAAMDMzMyIEAAA0MzMzI0IAADQzIyIzQgBANDMiIiIiBEBFIiJEJCIEQEUiQkREIgRARCJCREQiBABEEUJEREIAAEQRRUQkQgAAQFRVREIEAAAARERERAAAAAAAREQAAAAAAAAAAAAAAA==",
+        "dataEncoding": "base64",
+        "namespace": "myImages.",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage7"
-    },
-    "*": {
-        "mimeType": "image/x-mkcd-f4",
-        "dataEncoding": "base64",
-        "namespace": "myImages"
     }
 }
